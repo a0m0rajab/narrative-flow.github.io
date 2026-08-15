@@ -4160,10 +4160,6 @@ ul.right{
 	text-align: left;
 }
 
-html[lang="ar"] body {
-	direction: rtl;
-}
-
 html[lang="ar"] .spotlight .image {
 	margin: 0 0 0 3em;
 }
