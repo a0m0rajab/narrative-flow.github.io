@@ -20,8 +20,8 @@
 			<header id="header">
 				<div class="content">
 					<ul class="actions small language-switch" aria-label="Language selector">
-						<li><button type="button" class="button special lang-toggle" data-language="en" aria-pressed="true">English</button></li>
-						<li><button type="button" class="button lang-toggle" data-language="ar" aria-pressed="false">العربية</button></li>
+						<li><a href="?lang=en" class="button special lang-toggle" data-language="en" aria-pressed="true">English</a></li>
+						<li><a href="?lang=ar" class="button lang-toggle" data-language="ar" aria-pressed="false">العربية</a></li>
 					</ul>
 					<h1><a href="#"><span class="lang-en">Visual Narrative Flow</span><span class="lang-ar" hidden>تدفق السرد البصري</span></a></h1>
 					<p class="lang-en"><i>Authors:</i> Sean McKenna, Nathalie Henry Riche, Bongshin Lee, Jeremy Boy, and Miriah Meyer.</p>
@@ -526,22 +526,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 						});
 
-						try {
-							localStorage.setItem('homepage-language', language);
-						} catch (error) {}
 					}
 
-					Array.prototype.forEach.call(toggles, function (button) {
-						button.addEventListener('click', function () {
-							setLanguage(button.getAttribute('data-language'));
-						});
-					});
-
-					try {
-						setLanguage(localStorage.getItem('homepage-language') === 'ar' ? 'ar' : 'en');
-					} catch (error) {
-						setLanguage('en');
-					}
+					var searchLanguage = new URLSearchParams(window.location.search).get('lang');
+					setLanguage(searchLanguage === 'ar' ? 'ar' : 'en');
 				})();
 			</script>
 
