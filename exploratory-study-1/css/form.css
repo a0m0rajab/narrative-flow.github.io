@@ -37,3 +37,27 @@ aside{
 h6{
   font-style: italic;
 }
+
+html[lang="ar"] body {
+  direction: rtl;
+}
+
+html[lang="ar"] .question {
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+html[lang="ar"] .survey-grid {
+  margin-left: 0;
+  margin-right: 30px;
+}
+
+html[lang="ar"] .mdl-radio__label {
+  margin-left: 0;
+  margin-right: -23px;
+}
+
+html[lang="ar"] .text-field {
+  margin-left: 0;
+  margin-right: 70px;
+}

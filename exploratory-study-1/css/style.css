@@ -104,3 +104,36 @@ body {
 .non-stepper{
   opacity: 0;
 }
+
+.language-toggle {
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.language-toggle a {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border: 1px solid #999;
+  border-radius: 999px;
+  color: #555;
+  text-decoration: none;
+}
+
+.language-toggle a.active {
+  background: #323137;
+  border-color: #323137;
+  color: #fff;
+}
+
+html[lang="ar"] body {
+  direction: rtl;
+}
+
+html[lang="ar"] #controls {
+  padding: 10px 3% 5px 0;
+}
+
+html[lang="ar"] #stepper button {
+  margin: 5px 25px 5px 5px;
+}
