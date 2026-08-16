@@ -20,7 +20,7 @@
 			<header id="header">
 				<div class="content">
 					<ul class="actions small language-switch" aria-label="Language selector">
-						<li><a href="?lang=en" class="button special lang-toggle" data-language="en" aria-current="true">English</a></li>
+						<li><a href="?lang=en" class="button special lang-toggle" data-language="en">English</a></li>
 						<li><a href="?lang=ar" class="button lang-toggle" data-language="ar">العربية</a></li>
 					</ul>
 					<h1><a href="#"><span class="lang-en">Visual Narrative Flow</span><span class="lang-ar" hidden>تدفق السرد البصري</span></a></h1>
@@ -524,7 +524,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							var isActive = button.getAttribute('data-language') === language;
 							button.classList.toggle('special', isActive);
 							if (isActive) {
-								button.setAttribute('aria-current', 'true');
+								button.setAttribute('aria-current', 'page');
 							} else {
 								button.removeAttribute('aria-current');
 							}
