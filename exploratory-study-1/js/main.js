@@ -311,7 +311,6 @@ var UNIT_CONVERSION = function(value, unit, lang) {
       break;
   }
 
-  output_unit = output_unit || '';
   return output_unit ? output_value.toFixed(1) + ' ' + output_unit : output_value.toFixed(1);
 }
 
