@@ -12,6 +12,16 @@
     <!-- material design lite -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+      (function() {
+        var searchParams = new URLSearchParams(window.location.search);
+        var lang = searchParams.get('lang');
+        if (lang === 'en') {
+          searchParams.set('lang', 'en');
+          window.location.replace('index-en.html?' + searchParams.toString());
+        }
+      })();
+    </script>
 
     <!-- bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -153,8 +163,8 @@
     <div class="col-xs-2 col-sm-2">
       <em>الإعدادات:</em>
       <div class="language-toggle">
-        <a class="active" href="index.html">العربية</a>
-        <a href="index-en.html">English</a>
+        <a class="active" href="index.html?lang=ar">العربية</a>
+        <a href="index.html?lang=en">English</a>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2">
@@ -226,7 +236,7 @@
   <dialog id="consent" class="mdl-dialog">
 	  <h3 class="mdl-dialog__title">التعليمات</h3>
 	  <div class="mdl-dialog__content">
-		  <iframe class="consent" src="intro.html" frameborder="0"></iframe>
+		  <iframe class="consent" src="intro.html?lang=ar" frameborder="0"></iframe>
 	  </div>
 	  <div class="mdl-dialog__actions">
 		  <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">أوافق</button>
@@ -237,7 +247,7 @@
   <dialog id="survey" class="mdl-dialog">
 	  <h3 class="mdl-dialog__title">الاستبيان</h3>
 	  <div class="mdl-dialog__content">
-		  <iframe class="survey" src="survey.html" frameborder="0"></iframe>
+		  <iframe class="survey" src="survey.html?lang=ar" frameborder="0"></iframe>
 	  </div>
 	  <div class="mdl-dialog__actions">
 		  <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">العودة إلى القصة</button>

@@ -4,6 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="استبيان الدراسة الاستطلاعية">
+  <script>
+    (function() {
+      var searchParams = new URLSearchParams(window.location.search);
+      var lang = searchParams.get('lang');
+      if (lang === 'en') {
+        searchParams.set('lang', 'en');
+        window.location.replace('survey-en.html?' + searchParams.toString());
+      }
+    })();
+  </script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
