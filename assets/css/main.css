@@ -4159,3 +4159,30 @@ ul.right{
 	margin-left: 5em;
 	text-align: left;
 }
+
+html[lang="ar"] .spotlight .image {
+	margin: 0 0 0 3em;
+}
+
+html[lang="ar"] .spotlight:nth-child(2n) .image {
+	margin: 0 3em 0 0;
+}
+
+html[lang="ar"] ul.left,
+html[lang="ar"] ul.right {
+	margin-left: 0;
+	margin-right: 5em;
+	text-align: right;
+}
+
+html[lang="ar"] ul.left {
+	margin-right: 10em;
+}
+
+html[lang="ar"] ul.actions li {
+	padding: 0 0 0 1em;
+}
+
+html[lang="ar"] ul.actions li:last-child {
+	padding-left: 0;
+}
