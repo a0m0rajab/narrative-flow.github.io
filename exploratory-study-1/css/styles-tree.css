@@ -300,3 +300,16 @@ div {
   border-radius: 0.5em;
   padding: 0.9em 1em 1.1em;
 }
+
+html[lang="ar"] #intro-scatterplot,
+html[lang="ar"] #decision-tree,
+html[lang="ar"] #train-vs-test,
+html[lang="ar"] #shadow-scatterplot {
+  left: 0;
+  right: auto;
+}
+
+html[lang="ar"] #split-quality {
+  left: 4% !important;
+  right: auto;
+}
