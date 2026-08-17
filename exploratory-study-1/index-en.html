@@ -12,6 +12,24 @@ A Visual Introduction to Machine Learning
     <!-- material design lite -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+      (function() {
+        var searchParams = new URLSearchParams(window.location.search);
+        var lang = searchParams.get('lang');
+        if (lang === 'ar') {
+          window.location.replace('index.html?' + searchParams.toString());
+          return;
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          var arabicParams = new URLSearchParams(window.location.search);
+          var englishParams = new URLSearchParams(window.location.search);
+          arabicParams.set('lang', 'ar');
+          englishParams.set('lang', 'en');
+          document.getElementById('lang-ar').href = '?' + arabicParams.toString();
+          document.getElementById('lang-en').href = '?' + englishParams.toString();
+        });
+      })();
+    </script>
 
     <!-- bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -153,8 +171,8 @@ A Visual Introduction to Machine Learning
     <div class="col-xs-2 col-sm-2">
       <em>settings:</em>
       <div class="language-toggle">
-        <a href="index.html?lang=ar">العربية</a>
-        <a class="active" href="index.html?lang=en">English</a>
+        <a id="lang-ar" href="?lang=ar">العربية</a>
+        <a id="lang-en" class="active" href="?lang=en">English</a>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2">

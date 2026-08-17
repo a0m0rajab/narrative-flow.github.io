@@ -17,9 +17,17 @@
         var searchParams = new URLSearchParams(window.location.search);
         var lang = searchParams.get('lang');
         if (lang === 'en') {
-          searchParams.set('lang', 'en');
           window.location.replace('index-en.html?' + searchParams.toString());
+          return;
         }
+        document.addEventListener('DOMContentLoaded', function() {
+          var arabicParams = new URLSearchParams(window.location.search);
+          var englishParams = new URLSearchParams(window.location.search);
+          arabicParams.set('lang', 'ar');
+          englishParams.set('lang', 'en');
+          document.getElementById('lang-ar').href = '?' + arabicParams.toString();
+          document.getElementById('lang-en').href = '?' + englishParams.toString();
+        });
       })();
     </script>
 
@@ -163,8 +171,8 @@
     <div class="col-xs-2 col-sm-2">
       <em>الإعدادات:</em>
       <div class="language-toggle">
-        <a class="active" href="index.html?lang=ar">العربية</a>
-        <a href="index.html?lang=en">English</a>
+        <a id="lang-ar" class="active" href="?lang=ar">العربية</a>
+        <a id="lang-en" href="?lang=en">English</a>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2">
