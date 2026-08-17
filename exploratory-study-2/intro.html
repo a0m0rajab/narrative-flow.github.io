@@ -1,4 +1,8 @@
 <style>
+  body{
+    direction: rtl;
+    text-align: right;
+  }
   p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25em;
@@ -21,29 +25,38 @@
     border: 1px solid #AAA;
   }
 </style>
+<script>
+  (function() {
+    var searchParams = new URLSearchParams(window.location.search);
+    var lang = searchParams.get('lang');
+    if (lang === 'en') {
+      window.location.replace('intro-en.html?' + searchParams.toString());
+    }
+  })();
+</script>
 
 <p>
- The purpose of this study is to better understand how different navigational paradigms affect the consumption of data-driven visual stories and the overall story experience.
+  الغرض من هذه الدراسة هو فهم كيفية تأثير أنماط التنقل المختلفة في استهلاك القصص البصرية المدفوعة بالبيانات وفي تجربة القصة عمومًا.
 </p>
 
 <p>
-We will ask you to experience a visual story in two different settings: as a <i>stepper</i> and a <i>scroller</i>.
+  سنطلب منك تجربة قصة بصرية في إعدادين مختلفين: بنمط <i>المُتدرِّج</i> ونمط <i>التمرير</i>.
 </p>
 
 <p>
-You will be asked to read a story in these conditions and provide your feedback after each chapter. We are utilizing a real-world story about machine learning created by Stephanie Yee & Tony Chu, broken up into three chapters. We will ask you to read this story as you normally would and provide your honest feedback on the different navigation paradigms.
+  سيُطلب منك قراءة القصة ضمن هذين الإعدادين وتقديم ملاحظاتك بعد كل فصل. نستخدم قصة واقعية عن تعلّم الآلة من إعداد Stephanie Yee وTony Chu، ومقسّمة إلى ثلاثة فصول. نرجو منك قراءة القصة كما تقرأ عادةً ثم تقديم تقييمك الصادق لأنماط التنقل المختلفة.
 </p>
 
 <hr>
 
 <p>
-We do not anticipate any risk for taking part in this study. If you have any questions, complaints, or if you feel you have been harmed by this research please contact [RESEARCHER]. You can also contact the IRB if you have questions regarding your rights as a research participant.
+  لا نتوقع أي مخاطر من المشاركة في هذه الدراسة. إذا كانت لديك أي أسئلة أو شكاوى، أو شعرت بأنك تضررت من هذا البحث، فيرجى التواصل مع [RESEARCHER]. ويمكنك أيضًا التواصل مع لجنة المراجعة المؤسسية إذا كانت لديك أسئلة حول حقوقك بوصفك مشاركًا في البحث.
 </p>
 
 <p>
-This study should take less than 15 minutes to complete. Participation in this study is voluntary. You can choose not to take part. You can choose not to finish the questionnaire or omit any question you prefer not to answer without penalty or loss of benefits. Your participation or non-participation will in no way affect your employment. By continuing with this study, you are giving your consent to participate in this study.
+  يستغرق إكمال هذه الدراسة أقل من 15 دقيقة. والمشاركة فيها طوعية. يمكنك اختيار عدم المشاركة. كما يمكنك اختيار عدم إكمال الاستبيان أو ترك أي سؤال تفضّل عدم الإجابة عنه من دون أي عقوبة أو فقدان للمزايا. ولن تؤثر مشاركتك أو عدم مشاركتك بأي شكل في عملك. ومن خلال الاستمرار في هذه الدراسة، فإنك تمنح موافقتك على المشاركة فيها.
 </p>
 
 <p>
-Thank you for taking the time to participate in our study; we appreciate your cooperation.
+  شكرًا لتخصيص وقتك للمشاركة في دراستنا؛ نحن نقدّر تعاونك.
 </p>
