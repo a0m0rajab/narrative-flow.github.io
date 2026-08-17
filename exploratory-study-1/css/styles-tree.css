@@ -313,3 +313,8 @@ html[lang="ar"] #split-quality {
   left: 4% !important;
   right: auto;
 }
+
+html[lang="ar"] #main .col-xs-5,
+html[lang="ar"] #main .col-xs-4 {
+  float: right;
+}
