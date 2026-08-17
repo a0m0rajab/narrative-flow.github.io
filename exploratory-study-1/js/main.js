@@ -88,48 +88,57 @@ var DIMENSION_LONGFORM = {
     "en": "elevation",
     "ru": "возвышение",
     "zh": "海拔",
-    "fr": "altitude"
+    "fr": "altitude",
+    "ar": "الارتفاع"
   },
   year_built: {
     "en": "year built",
     "ru": "год постройки",
     "zh": "建成年份",
-    "fr": "construction"
+    "fr": "construction",
+    "ar": "سنة البناء"
   },
   bath: {
     "en": "bathrooms",
     "ru": "кол-во ванных",
     "zh": "浴室",
-    "fr": "bains"
+    "fr": "bains",
+    "ar": "الحمّامات"
   },
   beds: {
     "en": "bedrooms",
     "ru": "кол-во спален",
     "zh": "臥室",
-    "fr": "pièces"
+    "fr": "pièces",
+    "ar": "غرف النوم"
   },
   price: {
     "en": "price",
     "ru": "стоимость",
     "zh": "價格",
-    "fr": "prix"
+    "fr": "prix",
+    "ar": "السعر"
   },
   sqft: {
     "en": "square feet",
     "ru": "площадь",
     "zh": "海拔",
-    "fr": "mètres"
+    "fr": "mètres",
+    "ar": "القدم المربعة"
   },
   price_per_sqft: {
     "en": "price per sqft",
     "ru": "цена за m²",
     "zh": "每平方公尺價格",
-    "fr": "prix par mètre"
+    "fr": "prix par mètre",
+    "ar": "السعر لكل قدم مربعة"
   }
 }
 
 var testAccuracyText = function(LANG) {
   switch (LANG) {
+    case 'ar':
+      return 'دقة الاختبار'
     case 'ru':
       return 'точность результатов на тестовой выборке'
     case 'fr':
@@ -142,6 +151,8 @@ var testAccuracyText = function(LANG) {
 
 var trainingAccuracyText = function(LANG) {
   switch (LANG) {
+    case 'ar':
+      return 'دقة التدريب'
     case 'ru':
       return 'точность результатов на обучающей выборке'
     case 'fr':
@@ -180,6 +191,60 @@ var DIMENSION_UNITS = {
   price_per_sqft: {
     prefix: "$",
     suffix: "per sqft"
+  }
+}
+
+var UNIT_LABELS = {
+  'm': {
+    ar: 'م'
+  },
+  'm²': {
+    ar: 'م²'
+  },
+  'sqft': {
+    ar: 'قدم²'
+  },
+  'per sqft': {
+    ar: 'لكل قدم²'
+  },
+  'per m²': {
+    ar: 'لكل م²'
+  },
+  'baths': {
+    ar: 'حمّامات'
+  },
+  'bedrooms': {
+    ar: 'غرف نوم'
+  }
+}
+
+function localizeUnitLabel(unit, lang) {
+  if (UNIT_LABELS[unit] && UNIT_LABELS[unit][lang]) {
+    return UNIT_LABELS[unit][lang];
+  }
+  return unit;
+}
+
+var TOGGLE_LABELS = {
+  animation: {
+    enabled: {
+      en: 'animation',
+      ar: 'الحركة'
+    },
+    disabled: {
+      en: 'no animation',
+      ar: 'من دون حركة'
+    }
+  },
+  navigation: {
+    scrolling: {
+      en: 'scrolling',
+      ar: 'التمرير'
+    },
+    stepper: {
+      en: 'arrow buttons',
+      ar: 'أزرار الأسهم'
+    }
   }
 }
 
@@ -234,6 +299,9 @@ var UNIT_CONVERSION = function(value, unit, lang) {
   }
 
   switch (lang) {
+    case 'ar':
+      output_unit = localizeUnitLabel(output_unit, lang);
+      break;
     case 'ru':
       if (output_unit === 'per m²') { output_unit = 'за m²'; }
       break;
@@ -243,7 +311,7 @@ var UNIT_CONVERSION = function(value, unit, lang) {
       break;
   }
 
-  return output_value.toFixed(1) + ' ' + output_unit;
+  return output_unit ? output_value.toFixed(1) + ' ' + output_unit : output_value.toFixed(1);
 }
 
 _.each(DIMENSIONS, function(D) {
@@ -5633,7 +5701,7 @@ function showNoAnimation(){
   zenoSpeed = 0;
   generateScrollPositions();
   // change text
-  $("#switch-2").parent().find(".mdl-switch__label").text("no animation");
+  $("#switch-2").parent().find(".mdl-switch__label").text(TOGGLE_LABELS.animation.disabled[LANG] || TOGGLE_LABELS.animation.disabled.en);
   notAnimated = true;
 }
 function showAnimation(){
@@ -5642,7 +5710,7 @@ function showAnimation(){
     zenoSpeed = 0.95;
   }
   // change text
-  $("#switch-2").parent().find(".mdl-switch__label").text("animation");
+  $("#switch-2").parent().find(".mdl-switch__label").text(TOGGLE_LABELS.animation.enabled[LANG] || TOGGLE_LABELS.animation.enabled.en);
   notAnimated = false;
 }
 
@@ -5681,7 +5749,7 @@ function showStepper(){
   findClosestScrollPosition();
   updateWindowPosition();
   // change text
-  $("#switch-1").parent().find(".mdl-switch__label").text("arrow buttons");
+  $("#switch-1").parent().find(".mdl-switch__label").text(TOGGLE_LABELS.navigation.stepper[LANG] || TOGGLE_LABELS.navigation.stepper.en);
   stepper = true;
 }
 function hideStepper(){
@@ -5705,7 +5773,7 @@ function hideStepper(){
     zenoSpeed = 0;
   }
   // change text
-  $("#switch-1").parent().find(".mdl-switch__label").text("scrolling");
+  $("#switch-1").parent().find(".mdl-switch__label").text(TOGGLE_LABELS.navigation.scrolling[LANG] || TOGGLE_LABELS.navigation.scrolling.en);
   stepper = false;
 }
 
